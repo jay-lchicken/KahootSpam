@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kahoot Spammer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kahoot Spammer</h1>
+        <div class="input-group">
+            <label for="gamePin">Game PIN</label>
+            <input type="number" id="gamePin" required>
+        </div>
+        <div class="input-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="input-group">
+            <label for="count">Count</label>
+            <input type="number" id="count" required>
+        </div>
+        <button onclick="spamKahoot()">Spam Kahoot</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/kahoot-spam@latest/index.min.js"></script>
+    <script>
+        function spamKahoot() {
+            const gamePin = document.getElementById('gamePin').value;
+            const name = document.getElementById('name').value;
+            const count = document.getElementById('count').value;
+
+            const api = new KahootSpam();
+            api.spam(gamePin, name, count);
+        }
+    </script>
+</body>
+</html>
